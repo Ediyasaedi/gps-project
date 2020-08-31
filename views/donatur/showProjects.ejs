@@ -1,0 +1,31 @@
+<%- include("../headerlogin.ejs")%>
+
+<div class="container mt-3">
+ <%- include("../partials/navbar.ejs")%>
+</div>
+
+<div class="container">
+
+    <% for(let i = 0; i < project.length; i++){ %>
+        <div class="card m-4" style="width: 38rem;">
+            <img class="card-img-top" src="../assets/images/donasi.jpg" alt="Card image cap" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= project[i].name %></h5>
+              <p class="card-text"><%= project[i].description %></p>
+              <p class="card-text">Donasi terkumpul: <%= project[i].value %></p>
+              <div class="row text-center">
+                <div class="col-sm">
+                  <a href="/user/donasi/<%= project[i].id %>" class="btn btn-success">Donasi</a>
+                </div>
+                <div class="col-sm">
+                  <a href="/report/<%= project[i].id %>" class="btn btn-primary">Report</a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+    <% } %>
+
+</div>
+
+<%- include("../partials/footer.ejs")%>

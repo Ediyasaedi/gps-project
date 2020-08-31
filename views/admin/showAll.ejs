@@ -1,0 +1,27 @@
+<%- include("../headerlogin.ejs")%>
+
+<div class="container mt-3">
+ <%- include("../partials/navbaradmin.ejs")%>
+</div>
+
+<div class="container">
+    <a href="/admin/add"><button class="btn btn-success">Add Project</button></a>
+    <% for(let i = 0; i < project.length; i++){ %>
+        <div class="card m-4" style="width: 28rem;">
+            <img class="card-img-top" src="../assets/images/donasi.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= project[i].name %></h5>
+              <p class="card-text"><%= project[i].description %></p>
+              <p class="card-text">Donasi terkumpul: <%= project[i].value %></p>
+              <div class="row text-center">
+                <div class="col-sm"><a href="/report/<%= project[i].id %>" class="btn btn-primary">Report</a></div>
+                <div class="col-sm"><a href="/admin/edit/<%= project[i].id %>" class="btn btn-primary">Edit</a></div>
+                <div class="col-sm"><a href="/admin/delete/<%= project[i].id %>" class="btn btn-danger">Delete</a></div>
+              </div>
+            </div>
+          </div>
+    <% } %>
+
+</div>
+
+<%- include("../partials/footer.ejs")%>
